@@ -20,17 +20,14 @@
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
-                                    <segment title="три "/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.0" green="1" blue="0.085592843592166901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="changeSegmentInSegmentedControl" destination="BYZ-38-t0r" eventType="valueChanged" id="5UH-iT-M8y"/>
-                                    <action selector="changeSegmentInSegmentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zrg-BW-t2R"/>
+                                    <action selector="changeSegmentInSegmentedControl" destination="BYZ-38-t0r" eventType="valueChanged" id="vvK-FJ-eb3"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNa-P2-9ua">
                                 <rect key="frame" x="20" y="165" width="374" height="20.333333333333343"/>
-                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,8 +45,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="mainLabel" destination="yNa-P2-9ua" id="L4c-Rq-OJG"/>
-                        <outlet property="segmantedControl" destination="P1F-3H-3k3" id="jtd-iu-sC6"/>
+                        <outlet property="mainLabel" destination="yNa-P2-9ua" id="74A-5u-RXB"/>
+                        <outlet property="segmantedControl" destination="P1F-3H-3k3" id="gkA-UP-WEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
