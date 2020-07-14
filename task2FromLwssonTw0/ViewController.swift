@@ -13,19 +13,31 @@ class ViewController: UIViewController {
     
     @IBOutlet var segmantedControl: UISegmentedControl!
     @IBOutlet var mainLabel: UILabel!
+    @IBOutlet var slider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // all about label adjust
-        mainLabel.text = ""
         mainLabel.font = mainLabel.font.withSize(35)
         mainLabel.textAlignment = .center
         mainLabel.numberOfLines = 2
         
         // all adjust segmented control
         segmantedControl.insertSegment(withTitle: "Thierd", at: 2, animated:false )
-         
+        
+        //setUp Slider
+        
+        slider.value = 1
+        slider.minimumValue = 1
+        slider.maximumValue = 100
+        slider.minimumTrackTintColor = .green
+        slider.maximumTrackTintColor = .systemTeal
+        slider.thumbTintColor = .green
+        
+        mainLabel.text = String(Int(slider.value))
+
+        
     }
 
     @IBAction func changeSegmentInSegmentedControl() {
@@ -44,4 +56,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func sliderAction() {
+        
+        mainLabel.text = String(Int(slider.value))
+        
+        
+    }
 }

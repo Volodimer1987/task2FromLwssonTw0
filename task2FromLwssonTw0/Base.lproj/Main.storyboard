@@ -15,8 +15,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNa-P2-9ua">
+                                <rect key="frame" x="20" y="165" width="374" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0iL-oe-L3l">
+                                <rect key="frame" x="52" y="240" width="297" height="31"/>
+                                <color key="minimumTrackTintColor" red="0.0" green="1" blue="0.085592843592166901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="maximumTrackTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="sliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="s84-wb-PmI"/>
+                                </connections>
+                            </slider>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="P1F-3H-3k3">
-                                <rect key="frame" x="103" y="78" width="208" height="32"/>
+                                <rect key="frame" x="54" y="74" width="293" height="32"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -26,27 +41,25 @@
                                     <action selector="changeSegmentInSegmentedControl" destination="BYZ-38-t0r" eventType="valueChanged" id="vvK-FJ-eb3"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNa-P2-9ua">
-                                <rect key="frame" x="20" y="165" width="374" height="20.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="P1F-3H-3k3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="34" id="6Tm-1H-dMB"/>
-                            <constraint firstItem="yNa-P2-9ua" firstAttribute="top" secondItem="P1F-3H-3k3" secondAttribute="bottom" constant="56" id="C5d-lD-PX5"/>
+                            <constraint firstItem="P1F-3H-3k3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="6Tm-1H-dMB"/>
+                            <constraint firstItem="yNa-P2-9ua" firstAttribute="top" secondItem="P1F-3H-3k3" secondAttribute="bottom" constant="60" id="C5d-lD-PX5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yNa-P2-9ua" secondAttribute="trailing" constant="20" id="Jfq-aW-wLY"/>
-                            <constraint firstItem="P1F-3H-3k3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="103" id="Jsh-jS-2Mp"/>
+                            <constraint firstItem="P1F-3H-3k3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="Jsh-jS-2Mp"/>
                             <constraint firstItem="yNa-P2-9ua" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NQj-SQ-4HF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P1F-3H-3k3" secondAttribute="trailing" constant="103" id="eew-gh-imh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0iL-oe-L3l" secondAttribute="trailing" constant="67" id="RW3-5L-zd2"/>
+                            <constraint firstItem="0iL-oe-L3l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="Rm4-A7-Oai"/>
+                            <constraint firstItem="0iL-oe-L3l" firstAttribute="top" secondItem="yNa-P2-9ua" secondAttribute="bottom" constant="54.670000000000002" id="ckI-Wp-g44"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P1F-3H-3k3" secondAttribute="trailing" constant="67" id="eew-gh-imh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mainLabel" destination="yNa-P2-9ua" id="74A-5u-RXB"/>
                         <outlet property="segmantedControl" destination="P1F-3H-3k3" id="gkA-UP-WEB"/>
+                        <outlet property="slider" destination="0iL-oe-L3l" id="Ctn-S8-BgV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
