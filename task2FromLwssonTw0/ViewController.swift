@@ -11,9 +11,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var textField: UITextField!
     @IBOutlet var segmantedControl: UISegmentedControl!
     @IBOutlet var mainLabel: UILabel!
     @IBOutlet var slider: UISlider!
+    @IBOutlet var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +31,13 @@ class ViewController: UIViewController {
         //setUp Slider
         
         slider.value = 1
-        slider.minimumValue = 1
-        slider.maximumValue = 100
+        slider.minimumValue = 0
+        slider.maximumValue = 1
         slider.minimumTrackTintColor = .green
         slider.maximumTrackTintColor = .systemTeal
         slider.thumbTintColor = .green
         
-        mainLabel.text = String(Int(slider.value))
+        mainLabel.text = String(slider.value)
 
         
     }
@@ -57,9 +59,40 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderAction() {
+        let backGroundColor = view.backgroundColor
+        view.backgroundColor = backGroundColor?.withAlphaComponent(CGFloat(slider.value))
+        mainLabel.text = String(slider.value)
         
-        mainLabel.text = String(Int(slider.value))
         
+    }
+    
+    @IBAction func doneButtonAction() {
+        guard let inputText = textField.text , !inputText.isEmpty else  { return }
         
+        if let _ = Double(inputText) {
+            showAlert(title: "Wrong Format", message: "Please enter your name")
+            print("Wrong Format")
+            
+        } else {
+            mainLabel.text = inputText
+            textField.text = nil
+        }
+    }
+}
+extension ViewController {
+    
+    private func showAlert(title:String,message:String ) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        
+    let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            self.textField.text = "" }
+        
+        alert.addAction(okAction)
+        
+        present(alert, animated: true)
+     
     }
 }
