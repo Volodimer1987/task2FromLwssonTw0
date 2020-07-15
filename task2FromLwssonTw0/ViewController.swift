@@ -11,11 +11,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var swithLabel: UILabel!
+    @IBOutlet var hideAllEliments: UISwitch!
     @IBOutlet var textField: UITextField!
     @IBOutlet var segmantedControl: UISegmentedControl!
     @IBOutlet var mainLabel: UILabel!
     @IBOutlet var slider: UISlider!
     @IBOutlet var doneButton: UIButton!
+    
+    @IBOutlet var datePickerOutlet: UIDatePicker!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +43,13 @@ class ViewController: UIViewController {
         slider.thumbTintColor = .green
         
         mainLabel.text = String(slider.value)
-
         
+        // setUp datePicker
+        datePickerOutlet.locale = Locale(identifier: "ru_RU")
+//        datePickerOutlet.locale = Locale.current
+        
+        hideAllEliments.onTintColor = .red
+        swithLabel.text = "Hide all elements"
     }
 
     @IBAction func changeSegmentInSegmentedControl() {
@@ -78,6 +88,29 @@ class ViewController: UIViewController {
             textField.text = nil
         }
     }
+    
+
+    @IBAction func changeDate() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        let dateValue = dateFormatter.string(from: datePickerOutlet.date)
+        mainLabel.text = dateValue
+        
+    }
+    
+    @IBAction func switchAction() {
+        segmantedControl.isHidden.toggle()
+        mainLabel.isHidden.toggle()
+        slider .isHidden.toggle()
+        textField.isHidden.toggle()
+        doneButton.isHidden.toggle()
+        datePickerOutlet.isHidden.toggle()
+        
+        swithLabel.text = hideAllEliments.isOn ? "Hide all elements":"Show all elements"
+        
+    }
+    
 }
 extension ViewController {
     
